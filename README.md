@@ -15,8 +15,7 @@ Project is created with:
 * PHP version: 8.0
 	
 ## Setup
-To run this project install it locally by download the code as ZIP then unpack it in your ./xampp/htdocs folder and rename it to 'Vizsgaprojekt'.
-Or use:
+To run this project install it locally use:
 " cd The/directroy/you/want"
 " git clone https://github.com/markmegyesi/Vizsgaprojekt "
 Use the .sql file in the main directory for test.Rename $servername ,$username,$password and $dbname in DBConnect.php
