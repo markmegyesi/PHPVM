@@ -4,6 +4,8 @@
 * [General info](#general-info)
 * [Technology](#technology)
 * [Setup](#setup)
+* [Expectations](#expectations)
+* [Source](#source)
 
 ## General info
 This project is a simple one-page webpage. 
@@ -23,6 +25,10 @@ Password:abcdef
 Test user:
 Email:annakiss@gmail.com
 Password:123456
+
+## Expectations
+The page extract data from sql database for login and for the price table. As an admin you can edit the price table.
+
 
 ## Sources
 The Bootstrap template:https://github.com/StartBootstrap/startbootstrap-freelancer
