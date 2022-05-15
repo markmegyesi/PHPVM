@@ -22,7 +22,7 @@ public function connect() {
 // Create connection
         if (!isset($this->conn)) {
             $this->conn = new mysqli($servername, $username, $password, $dbname);
-            
+            // $this->conn->set_charset('utf8mb4');
            
         }
        
