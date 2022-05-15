@@ -5,7 +5,7 @@
 * [Technology](#technology)
 * [Setup](#setup)
 * [Expectations](#expectations)
-* [Source](#source)
+* [Sources](#sources)
 
 ## General info
 This project is a simple one-page webpage. 
