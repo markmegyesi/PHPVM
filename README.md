@@ -16,8 +16,11 @@ Project is created with:
 	
 ## Setup
 To run this project install it locally use:
+
 " cd The/directroy/you/want"
+
 " git clone https://github.com/markmegyesi/Vizsgaprojekt "
+
 Use the .sql file in the main directory for test.Rename $servername ,$username,$password and $dbname in DBConnect.php
 
 Test admin:
