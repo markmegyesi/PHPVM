@@ -13,64 +13,50 @@ class Login extends DBConnect {
         
     }
 
-    
-
     public function getUser($email, $password) {
 
         $db = new DBConnect();
-        $getPassword=[];
-        
-//        $sql = "SELECT jelszo FROM felhasznalok WHERE email='" . trim($email) . "' AND jelszo='" . trim($password) . "';";
-//        $result = $db->connect()->query($sql);
-//        $getPassword = mysqli_fetch_assoc($result);
-//        
-//        if (!$getPassword == null && $password == $getPassword['jelszo']) {
-//            $sql = "SELECT * FROM felhasznalok WHERE email='" . trim($email) . "' AND jelszo='" . trim($password) . "';";
-//            $result = $db->connect()->query($sql);
-//            $user = mysqli_fetch_assoc($result);
+        $getPassword = [];
+
         $stmt = $db->connect()->prepare("SELECT jelszo FROM felhasznalok WHERE email=? AND jelszo=?;");
-$stmt->bind_param('ss', $email,$password); 
-$stmt->execute();
+        $stmt->bind_param('ss', $email, $password);
+        $stmt->execute();
 
-$result = $stmt->get_result();
+        $result = $stmt->get_result();
 
- while ($row = $result->fetch_assoc()) {
-    $getPassword[]=$row;
-       
- 
-  var_dump($getPassword[0]['jelszo']);
+        while ($row = $result->fetch_assoc()) {
+            $getPassword[] = $row;
 
- if (!$getPassword == null && $password == $getPassword[0]['jelszo']) {
-     $user=[];
-      $stmt = $db->connect()->prepare("SELECT * FROM felhasznalok WHERE email=? AND jelszo=?;");
-$stmt->bind_param('ss', $email,$password);
-$stmt->execute();
+            var_dump($getPassword[0]['jelszo']);
 
-$result = $stmt->get_result(); 
-while ($row = $result->fetch_assoc()) {
-    $user[]=$row;
-    
+            if (!$getPassword == null && $password == $getPassword[0]['jelszo']) {
+                $user = [];
+                $stmt = $db->connect()->prepare("SELECT * FROM felhasznalok WHERE email=? AND jelszo=?;");
+                $stmt->bind_param('ss', $email, $password);
+                $stmt->execute();
 
-        var_dump($user);
-            if($user){
-                
-           
-            $_SESSION ['email'] = $user [0]["email"];
-            $_SESSION ['name'] = $user [0]['nev'];
-            $_SESSION ['valid'] = $user [0]['valid'];
+                $result = $stmt->get_result();
+                while ($row = $result->fetch_assoc()) {
+                    $user[] = $row;
+
+                    var_dump($user);
+                    if ($user) {
+
+
+                        $_SESSION ['email'] = $user [0]["email"];
+                        $_SESSION ['name'] = $user [0]['nev'];
+                        $_SESSION ['valid'] = $user [0]['valid'];
+                    }
+                    $db->dbclose();
+                }
+
+                if (isset($_SESSION['name'])) {
+                    return true;
+                } else {
+                    return false;
+                }
             }
-            $db->dbclose();
-            
         }
-        
-        if(isset($_SESSION['name'])){
-            return true;
-            
-        }else{
-            return false;
-        }   
-        }
- }
     }
 
 }
