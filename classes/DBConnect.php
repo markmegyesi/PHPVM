@@ -14,7 +14,7 @@ public function connect() {
 
     
         
-        require_once (__DIR__.'./conf.php');
+        
         $servername = "localhost";
         $username = "root";
         $password = "";
